@@ -21,3 +21,4 @@ Feature: Incident
     And click 'Incidents' menu item in 'Incidents menu'
     And click 'Delete Incident' menu item in 'Incidents menu'
     And click 'Confirm Delete Incident' menu item in 'Incidents menu'
+    Then verify incident item has been deleted in 'Incidents list'

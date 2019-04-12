@@ -1,6 +1,6 @@
 package org.umssdiplo.automationv01.core.managepage.care4you.web.Incident;
 
-//import com.sun.tools.javac.util.Assert;
+import com.sun.tools.javac.util.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
@@ -26,7 +26,8 @@ public class IncidentUpdate extends BasePage {
     public void verifyIncidentEdited(Incident incident) {
         WebElement createdElement = findWebElement(nameColumnList, incident.getName());
         if (null == createdElement) {
-//            Assert.error();
+            Assert.checkNull(createdElement);
         }
+        Assert.checkNonNull(createdElement);
     }
 }

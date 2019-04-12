@@ -20,6 +20,7 @@ Feature: Incident
       | name    | description    | date    | type    | severity    | employeeId    |
       | <sname> | <sdescription> | <sdate> | <stype> | <sseverity> | <semployeeId> |
     And click 'submit' button in 'Incidents menu'
+    Then verify incident item has been create in 'Incidents list'
 
     Examples:
       | sname       | sdescription   | sdate                   | stype    | sseverity | semployeeId |

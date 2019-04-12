@@ -1,7 +1,9 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
+import com.sun.tools.javac.util.Assert;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import org.umssdiplo.automationv01.core.managepage.care4you.domain.Incident;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentCreate;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentUpdate;
@@ -52,6 +54,14 @@ public class StepsDefinitionCare4You {
         incidentHome.deleteIncidentsOption();
     }
 
+    @Then("^verify incident item has been deleted in 'Incidents list'$")
+    public void verifyIncidentDeleted() throws Throwable {
+        boolean removed = incidentHome.verifyIncidentDeleted();
+        if (removed) {
+            Assert.error("[" + IncidentUpdate.class + "]: Verification Exception: Incident has not been removed from in incident list.");
+        }
+    }
+
     @And("^click 'Confirm Delete Incident' menu item in 'Incidents menu'$")
     public void OKDeleteIncidentsReport() throws Throwable {
         incidentHome.okDeleteIncidentsOption();
@@ -67,9 +77,14 @@ public class StepsDefinitionCare4You {
         incidentCreate.fillIncidentsForm(incident.get(0));
     }
 
-    @And("^verify incident item has been edited in 'Incidents list'$")
+    @Then("^verify incident item has been edited in 'Incidents list'$")
     public void verifyIncidentEdited(List<Incident> incident) throws Throwable {
         incidentEdit.verifyIncidentEdited(incident.get(0));
+    }
+
+    @Then("^verify incident item has been create in 'Incidents list'$")
+    public void verifyIncidentCreate(List<Incident> incident) throws Throwable {
+        incidentCreate.verifyIncidentCreate(incident.get(0));
     }
 
     @And("^click 'Edit an incident' button in first element of 'Incidents list'$")
