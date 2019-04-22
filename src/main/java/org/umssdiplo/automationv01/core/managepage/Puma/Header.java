@@ -5,6 +5,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
+import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 public class Header extends BasePage {
 
@@ -14,6 +15,9 @@ public class Header extends BasePage {
     @FindBy(xpath = "//div[@class='inner___3Nvdx']/div/div/a[text() = 'HOMBRE']")
     private WebElement navRowMensValue;
 
+    @FindBy(xpath = "//div[@class='col-5']/ul/li/a[text() = 'Fútbol']")
+    private WebElement futbonBtn;
+
     public void setNavHombres() {
 
         Actions actions = new Actions(ManageDriver.getInstance().getWebDriver());
@@ -22,6 +26,6 @@ public class Header extends BasePage {
 //        actions.click();
         actions.perform();
         System.out.println(navRowMensValue);
-//        CommonEvents.clickButton(navRowMensValue);
+        CommonEvents.clickButton(futbonBtn);
     }
 }
