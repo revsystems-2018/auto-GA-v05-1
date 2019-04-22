@@ -11,6 +11,6 @@ Feature: Login
     Then the status code should be 200
 
   Scenario: POSTMAN- Pot using java-cucumber-restassure
-    Given POST "/post" postman endpoint is configured
+    Given POST "/post" postman endpoint is configured with "diplomado testing" as a body
     Then the responde 'data' value is "diplomado testing"
     And the status code should be 200
