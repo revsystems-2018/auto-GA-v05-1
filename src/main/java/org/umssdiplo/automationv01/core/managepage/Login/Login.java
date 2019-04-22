@@ -16,6 +16,9 @@ public class Login extends BasePage {
     @FindBy(css = ".btn-primary.btn-block")
     private WebElement loginBtn;
 
+    @FindBy(partialLinkText = "")
+    private WebElement testing;
+
     public void setCredentials() {
         String username = PropertyAccessor.getInstance().getUser();
         String password = PropertyAccessor.getInstance().getPassword();
